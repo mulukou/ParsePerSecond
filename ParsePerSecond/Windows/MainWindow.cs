@@ -8,11 +8,10 @@ namespace SamplePlugin.Windows;
 
 public class MainWindow : Window, IDisposable
 {
-    private TextureWrap GoatImage;
     private Plugin Plugin;
 
-    public MainWindow(Plugin plugin, TextureWrap goatImage) : base(
-        "My Amazing Window", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
+    public MainWindow(Plugin plugin) : base(
+        "Parse Per Second", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
     {
         this.SizeConstraints = new WindowSizeConstraints
         {
@@ -20,13 +19,11 @@ public class MainWindow : Window, IDisposable
             MaximumSize = new Vector2(float.MaxValue, float.MaxValue)
         };
 
-        this.GoatImage = goatImage;
         this.Plugin = plugin;
     }
 
     public void Dispose()
     {
-        this.GoatImage.Dispose();
     }
 
     public override void Draw()
@@ -38,11 +35,20 @@ public class MainWindow : Window, IDisposable
             this.Plugin.DrawConfigUI();
         }
 
-        ImGui.Spacing();
+        if (ImGui.Button("DPS")) {
 
-        ImGui.Text("Have a goat:");
-        ImGui.Indent(55);
-        ImGui.Image(this.GoatImage.ImGuiHandle, new Vector2(this.GoatImage.Width, this.GoatImage.Height));
-        ImGui.Unindent(55);
+        }
+        ImGui.SameLine();
+        if (ImGui.Button("Tank")) {
+            
+        }
+        ImGui.SameLine();
+        if (ImGui.Button("Heal")) {
+            
+        }
+        ImGui.SameLine();
+        if (ImGui.Button("24")) {
+            
+        }
     }
 }
