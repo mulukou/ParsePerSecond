@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Numerics;
 using Dalamud.Interface.Windowing;
+using Dalamud.Game.Gui;
+using Dalamud.Game.Text;
 using ImGuiNET;
 using ImGuiScene;
 
@@ -9,6 +11,7 @@ namespace SamplePlugin.Windows;
 public class MainWindow : Window, IDisposable
 {
     private Plugin Plugin;
+    internal ChatGui chatGui { get; private init; } = null!;
 
     public MainWindow(Plugin plugin) : base(
         "Parse Per Second", ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse)
@@ -36,7 +39,6 @@ public class MainWindow : Window, IDisposable
         }
 
         if (ImGui.Button("DPS")) {
-
         }
         ImGui.SameLine();
         if (ImGui.Button("Tank")) {

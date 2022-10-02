@@ -1,10 +1,12 @@
 ﻿using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
+using Dalamud.Game.Gui;
 using System.IO;
 using System.Reflection;
 using Dalamud.Interface.Windowing;
 using SamplePlugin.Windows;
+using Dalamud.Game.Text;
 
 namespace SamplePlugin
 {
@@ -17,14 +19,20 @@ namespace SamplePlugin
         private DalamudPluginInterface PluginInterface { get; init; }
         private CommandManager CommandManager { get; init; }
         public Configuration Configuration { get; init; }
+
+        public ChatGui ChatGui { get; init; }
         public WindowSystem WindowSystem = new("ParsePerSecond");
+
+        public event ChatGui.OnMessageDelegate ChatMessage;
 
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] CommandManager commandManager)
+            [RequiredVersion("1.0")] CommandManager commandManager,
+            [RequiredVersion("1.0")] ChatGui chatGui)
         {
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
+            this.ChatGui = chatGui;
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
@@ -42,9 +50,12 @@ namespace SamplePlugin
                 HelpMessage = "Opens Parse Per Second configuration window."
             });
 
-
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
+
+            XivChatEntry chat = new XivChatEntry();
+            chat.Message = "debug message";
+            ChatGui.PrintChat(chat);
         }
 
         public void Dispose()
