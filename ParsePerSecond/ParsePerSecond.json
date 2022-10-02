@@ -2,6 +2,7 @@
     "Author": "Kou Takamaki, Emma Clay",
     "Name": "Parse Per Second",
     "Punchline": "A tool to see your parse.",
+    "Description": "A tool to see your parse.",
     "InternalName": "parsePerSecond",
     "ApplicableVersion": "any",
     "RepoUrl": "https://github.com/mulukou/ParsePerSecond"
