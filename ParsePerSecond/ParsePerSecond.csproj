@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Authors>Kou Takamaki, Emma Clay</Authors>
+    <Authors>Kou Takamaki, Emma Clay, Elrynn Windborne, Lei Zardo</Authors>
     <Company>LolingGames</Company>
-    <Version>0.0.0.1</Version>
+    <Version>0.0.1</Version>
     <Description>A tool to see your parse.</Description>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/mulukou/ParsePerSecond</PackageProjectUrl>

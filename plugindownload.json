@@ -1,0 +1,24 @@
+[
+    {
+        "Author": "Kou Takamaki, Emma Clay, Elrynn Windborne, Lei Zardo",
+        "Name": "ParsePerSecond",
+        "Punchline": "A tool to see your parse.",
+        "Description": "A tool to see your parse.",
+        "Changelog": "",
+        "InternalName": "ParsePerSecond",
+        "AssemblyVersion": "0.0.1",
+        "RepoUrl": "https://github.com/mulukou/ParsePerSecond",
+        "ApplicableVersion": "any",
+        "CategoryTags": null,
+        "DalamudApiLevel": 7,
+        "IconUrl": null,
+        "ImageUrls": null,
+        "DownloadLinkInstall": "https://github.com/mulukou/ParsePerSecond/raw/master/latest.zip",
+        "IsHide": false,
+        "IsTestingExclusive": false,
+        "DownloadLinkTesting": "https://github.com/mulukou/ParsePerSecond/raw/master/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/mulukou/ParsePerSecond/raw/master/latest.zip",
+        "DownloadCount": 0,
+        "LastUpdate": 0
+    }
+]
