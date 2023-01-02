@@ -3,18 +3,18 @@ using System.IO;
 
 namespace ParsePerSecond.Utils
 {
-    public static class File
+    public class FileManager
     {
         private StreamWriter sw;
 
-        public static Init(string fileName)
+        public void Init(string fileName)
         {
             using FileStream fs = File.Create(fileName);
             using var sr = new StreamWriter(fs);
             this.sw = sr;
         }
 
-        public Write(string message)
+        public void Write(string message)
         {
             if (this.sw == null)
                 return;
