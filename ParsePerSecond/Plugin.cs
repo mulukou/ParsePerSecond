@@ -53,10 +53,6 @@ namespace ParsePerSecond
 
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
-
-            XivChatEntry chat = new XivChatEntry();
-            chat.Message = "debug message";
-            ChatGui.PrintChat(chat);
         }
 
         public void Dispose()
