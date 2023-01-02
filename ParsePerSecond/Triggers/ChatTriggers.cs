@@ -21,11 +21,6 @@ namespace ParsePerSecond.Triggers
 
         private void OnChatMessage(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
         {
-
-
-            PluginLog.Information($"CHAT TYPE: \"{type}\"");
-
-
             this.OnChatMessage(sender.TextValue, message.TextValue, type);
         }
 
@@ -33,14 +28,10 @@ namespace ParsePerSecond.Triggers
         {
             bool isSystem = string.IsNullOrEmpty(sender);
 
-            // Add the sender back into the message before regex.
             if (!isSystem)
                 message = sender + ": " + message;
 
-            // 2729 -> damage dealt
-            // 2222 2091 2224
-
-            PluginLog.Information($"Triggered: {this.Name} with chat message: \"{message}\"");
+            PluginLog.Information($"Chat Type: {type} | Chat Message: \"{message}\"");
 
         }
     }
