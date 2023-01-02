@@ -1,4 +1,3 @@
-using ParsePerSecond.Patterns;
 using Newtonsoft.Json;
 
 namespace ParsePerSecond.Triggers
@@ -24,8 +23,6 @@ namespace ParsePerSecond.Triggers
 
 		[JsonIgnore]
 		public bool IsAttached { get; private set; }
-
-		public PatternBase Pattern { get; set; } = new ConstantPattern();
 		public int DeviceGroup { get; set; } = 0;
 
 		public virtual void Attach()

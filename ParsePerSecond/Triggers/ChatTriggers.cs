@@ -1,10 +1,6 @@
-using System;
-using System.Text.RegularExpressions;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Logging;
-using ParsePerSecond;
-using ImGuiNET;
 
 namespace ParsePerSecond.Triggers
 {
@@ -24,9 +20,6 @@ namespace ParsePerSecond.Triggers
 
 		private void OnChatMessage(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
 		{
-			if (this.Pattern == null)
-				return;
-
 			this.OnChatMessage(sender.TextValue, message.TextValue);
 		}
 
