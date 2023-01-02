@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Logging;
@@ -8,6 +9,10 @@ namespace ParsePerSecond.Triggers
     {
 
         private FileManager fileManager;
+
+
+        private HashSet<ushort> existingChatTypes = new HashSet<ushort>();
+
 
         public ChatTrigger(string filePath)
         {
@@ -35,13 +40,19 @@ namespace ParsePerSecond.Triggers
 
         public void OnChatMessage(string sender, string message, XivChatType type)
         {
-            bool isSystem = string.IsNullOrEmpty(sender);
+            // bool isSystem = string.IsNullOrEmpty(sender);
 
-            if (!isSystem)
-                message = sender + ": " + message;
+            // if (!isSystem)
+            //     message = sender + ": " + message;
+
+            if (existingChatTypes.Contains((ushort)type))
+            {
+                return;
+            }
 
             PluginLog.Information($"Chat Type: {type} | Chat Message: \"{message}\"");
             this.fileManager.Write($"Chat Type: {type} | Chat Message: \"{message}\"");
+            existingChatTypes.Add((ushort)type);
 
         }
     }
