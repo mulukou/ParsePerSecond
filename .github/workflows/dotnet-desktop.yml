@@ -39,35 +39,35 @@
 name: .NET Core Desktop
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ["main"]
+    pull_request:
+        branches: ["main"]
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
+    build:
+        strategy:
+            matrix:
+                configuration: [Debug, Release]
 
-    runs-on: windows-latest  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+        runs-on:
+            windows-latest # For a list of available runner types, refer to
+            # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
-    env:
-      Solution_Name: ParsePerSecond                         # Replace with your solution name, i.e. MyWpfApp.sln.
+        env:
+            Solution_Name: ParsePerSecond # Replace with your solution name, i.e. MyWpfApp.sln.
 
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
 
-    # Install the .NET Core workload
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
+            # Install the .NET Core workload
+            - name: Install .NET Core
+              uses: actions/setup-dotnet@v3
+              with:
+                  dotnet-version: 6.0.x
 
-    - name: Build
-      run: -dotnet build
-
+            - name: Build
+              run: dotnet build
