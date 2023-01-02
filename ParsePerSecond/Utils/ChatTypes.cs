@@ -21,7 +21,6 @@ namespace ParsePerSecond.Utils
         CastStartPartyMember = 2347,
         CastStartPartyMemberToEnemy = 4139,
         DebuffInflictToPartyMember = 4399,
-
         PhysDamage = 2857, //no idea what happened here
         CastAllyStart = 2603,
         HealAlly = 2605,
@@ -38,7 +37,7 @@ namespace ParsePerSecond.Utils
         PartyMemberRez = 4154,
         UseItem = 2092,
 
-         
+
         //CastCancel = 2091, uses same ID as weaponskills and cast finishing
     }
 }
