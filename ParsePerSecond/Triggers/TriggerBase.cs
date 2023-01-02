@@ -19,11 +19,8 @@ namespace ParsePerSecond.Triggers
 			set => this.enabled = value;
 		}
 
-		public virtual int CooldownLeft => 0;
-
 		[JsonIgnore]
 		public bool IsAttached { get; private set; }
-		public int DeviceGroup { get; set; } = 0;
 
 		public virtual void Attach()
 		{

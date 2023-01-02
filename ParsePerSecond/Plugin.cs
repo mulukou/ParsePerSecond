@@ -2,11 +2,10 @@
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Game.Gui;
-using System.IO;
-using System.Reflection;
 using Dalamud.Interface.Windowing;
 using ParsePerSecond.Windows;
 using Dalamud.Game.Text;
+using ParsePerSecond.Triggers;
 
 namespace ParsePerSecond
 {
@@ -33,6 +32,8 @@ namespace ParsePerSecond
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
             ChatGui = chatGui;
+            ChatTrigger chatTrigger = new ChatTrigger();
+            chatTrigger.Attach();
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
