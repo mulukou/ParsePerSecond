@@ -13,11 +13,11 @@
         "DalamudApiLevel": 7,
         "IconUrl": null,
         "ImageUrls": null,
-        "DownloadLinkInstall": "https://github.com/mulukou/ParsePerSecond/raw/master/latest.zip",
+        "DownloadLinkInstall": "https://github.com/mulukou/ParsePerSecond/raw/main/latest.zip",
         "IsHide": false,
         "IsTestingExclusive": false,
-        "DownloadLinkTesting": "https://github.com/mulukou/ParsePerSecond/raw/master/latest.zip",
-        "DownloadLinkUpdate": "https://github.com/mulukou/ParsePerSecond/raw/master/latest.zip",
+        "DownloadLinkTesting": "https://github.com/mulukou/ParsePerSecond/raw/main/latest.zip",
+        "DownloadLinkUpdate": "https://github.com/mulukou/ParsePerSecond/raw/main/latest.zip",
         "DownloadCount": 0,
         "LastUpdate": 0
     }
