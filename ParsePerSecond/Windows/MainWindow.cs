@@ -6,7 +6,7 @@ using Dalamud.Game.Text;
 using ImGuiNET;
 using ImGuiScene;
 
-namespace SamplePlugin.Windows;
+namespace ParsePerSecond.Windows;
 
 public class MainWindow : Window, IDisposable
 {

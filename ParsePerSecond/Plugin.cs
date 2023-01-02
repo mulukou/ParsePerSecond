@@ -5,10 +5,10 @@ using Dalamud.Game.Gui;
 using System.IO;
 using System.Reflection;
 using Dalamud.Interface.Windowing;
-using SamplePlugin.Windows;
+using ParsePerSecond.Windows;
 using Dalamud.Game.Text;
 
-namespace SamplePlugin
+namespace ParsePerSecond
 {
     public sealed class Plugin : IDalamudPlugin
     {
@@ -20,7 +20,7 @@ namespace SamplePlugin
         private CommandManager CommandManager { get; init; }
         public Configuration Configuration { get; init; }
 
-        public ChatGui ChatGui { get; init; }
+        [PluginService] public static ChatGui ChatGui { get; private set; } = null!;
         public WindowSystem WindowSystem = new("ParsePerSecond");
 
         public event ChatGui.OnMessageDelegate ChatMessage;
@@ -32,7 +32,7 @@ namespace SamplePlugin
         {
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
-            this.ChatGui = chatGui;
+            ChatGui = chatGui;
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
