@@ -1,25 +1,29 @@
 using System;
 using System.IO;
+using Dalamud.Logging;
 
 namespace ParsePerSecond.Utils
 {
     public class FileManager
     {
-        private StreamWriter sw;
+        private StreamWriter destinationStream;
 
-        public void Init(string fileName)
+        public FileManager(string filePath)
         {
-            using FileStream fs = File.Create(fileName);
-            using var sr = new StreamWriter(fs);
-            this.sw = sr;
+            // FileStream destinationStream = File.Open("parse.log", FileMode.OpenOrCreate);
+
+            StreamWriter destinationStream = new StreamWriter(filePath);
+            this.destinationStream = destinationStream;
         }
 
         public void Write(string message)
         {
-            if (this.sw == null)
-                return;
+            this.destinationStream.WriteLine(message);
+        }
 
-            this.sw.WriteLine(message);
+        public void Dispose()
+        {
+            this.destinationStream.Dispose();
         }
     }
 }
