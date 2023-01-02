@@ -32,7 +32,8 @@ namespace ParsePerSecond
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
             ChatGui = chatGui;
-            ChatTrigger chatTrigger = new ChatTrigger();
+
+            ChatTrigger chatTrigger = new ChatTrigger("parse.log");
             chatTrigger.Attach();
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();

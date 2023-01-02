@@ -1,11 +1,19 @@
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Logging;
-
+using ParsePerSecond.Utils;
 namespace ParsePerSecond.Triggers
 {
     public class ChatTrigger : TriggerBase
     {
+
+        private FileManager fileManager;
+
+        public ChatTrigger(string filePath)
+        {
+            this.fileManager = new FileManager(filePath);
+        }
+
         public override void Attach()
         {
             base.Attach();
