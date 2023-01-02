@@ -25,6 +25,7 @@ namespace ParsePerSecond.Triggers
         {
             base.Detach();
             Plugin.ChatGui.ChatMessage -= this.OnChatMessage;
+            this.fileManager.Dispose();
         }
 
         private void OnChatMessage(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
@@ -40,6 +41,7 @@ namespace ParsePerSecond.Triggers
                 message = sender + ": " + message;
 
             PluginLog.Information($"Chat Type: {type} | Chat Message: \"{message}\"");
+            this.fileManager.Write($"Chat Type: {type} | Chat Message: \"{message}\"");
 
         }
     }

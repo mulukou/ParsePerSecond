@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Dalamud.Logging;
 
 namespace ParsePerSecond.Utils
 {
@@ -18,6 +19,11 @@ namespace ParsePerSecond.Utils
         public void Write(string message)
         {
             this.destinationStream.WriteLine(message);
+        }
+
+        public void Dispose()
+        {
+            this.destinationStream.Dispose();
         }
     }
 }

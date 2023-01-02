@@ -3,9 +3,11 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Game.Gui;
 using Dalamud.Interface.Windowing;
+using Dalamud.Logging;
 using ParsePerSecond.Windows;
 using Dalamud.Game.Text;
 using ParsePerSecond.Triggers;
+using System;
 
 namespace ParsePerSecond
 {
@@ -22,7 +24,7 @@ namespace ParsePerSecond
         [PluginService] public static ChatGui ChatGui { get; private set; } = null!;
         public WindowSystem WindowSystem = new("ParsePerSecond");
 
-        public event ChatGui.OnMessageDelegate ChatMessage;
+        private ChatTrigger chatTrigger;
 
         public Plugin(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
@@ -33,12 +35,13 @@ namespace ParsePerSecond
             this.CommandManager = commandManager;
             ChatGui = chatGui;
 
-            ChatTrigger chatTrigger = new ChatTrigger("parse.log");
+            string homePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string now = DateTime.Now.Year.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Day.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+            this.chatTrigger = new ChatTrigger(homePath + "/Network_26701_" + now + ".log");
             chatTrigger.Attach();
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
-
 
             WindowSystem.AddWindow(new ConfigWindow(this));
             WindowSystem.AddWindow(new MainWindow(this));
@@ -60,6 +63,7 @@ namespace ParsePerSecond
         {
             this.WindowSystem.RemoveAllWindows();
             this.CommandManager.RemoveHandler(MainCommandName);
+            this.chatTrigger.Detach();
         }
 
         private void OnMainCommand(string command, string args)
