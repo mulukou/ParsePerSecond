@@ -3,14 +3,14 @@
   <PropertyGroup>
     <Authors>Kou Takamaki, Emma Clay, Elrynn Windborne, Lei Zardo</Authors>
     <Company>LolingGames</Company>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Description>A tool to see your parse.</Description>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/mulukou/ParsePerSecond</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Platforms>x64</Platforms>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>

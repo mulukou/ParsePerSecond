@@ -1,4 +1,4 @@
-# Parse Per Secon
+# Parse Per Second
 
 A plugin for Dalamud with the intention of replacing Advanced Combat Tracker.
 
